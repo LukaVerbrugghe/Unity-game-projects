@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector3 force;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void FixedUpdate() {
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            GetComponent<Rigidbody>().velocity += force;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            GetComponent<Rigidbody>().velocity -= force;
+        }
     }
 }
